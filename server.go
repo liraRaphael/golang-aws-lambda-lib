@@ -7,16 +7,16 @@ import (
 )
 
 type Lambda struct {
-	routes map[string][]dtos.RouteDTO
+	routes map[string][]*dtos.RouteDTO
 }
 
 func (l *Lambda) Init() *Lambda {
-	l.routes = make(map[string][]dtos.RouteDTO)
+	l.routes = make(map[string][]*dtos.RouteDTO)
 
 	return l
 }
 
-func (l *Lambda) AddRoute(route dtos.RouteDTO) {
+func (l *Lambda) AddRoute(route *dtos.RouteDTO) {
 	l.routes[route.HttpMethod] = append(l.routes[route.HttpMethod], route)
 }
 
